@@ -1,6 +1,6 @@
-#' values average of PISCO daily dataframe
+#' monthly average values of PISCO daily dataframe
 #'
-#' function for calculate values average of PISCO daily dataframe from precipitation,
+#' function for calculate monthly average values of PISCO daily dataframe from precipitation,
 #' minimum and maximum temperature.
 #' @param x a dataframe with PISCO daily dataframe from precipitation, minimum
 #' and maximum temperature.
