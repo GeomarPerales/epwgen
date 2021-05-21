@@ -1,7 +1,7 @@
-# epwgen: extraction weather data from PISCO daily files and sun data daily generation for WGEN model.
+# epwgen: extraction weather data from PISCO daily files and sun daily data generation for WGEN model.
 
 The goal of epwgen package is to extraction weather data from PISCO (SENAMHI, Peru) daily files,
-monthly average values from precipitation, minimum and maximum temperature and sun data daily
+monthly average values from precipitation, minimum and maximum temperature and sun daily data
 generation for WGEN model. 
 
 ## Installation
