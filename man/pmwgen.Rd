@@ -2,7 +2,7 @@
 % Please edit documentation in R/pmwgen.R
 \name{pmwgen}
 \alias{pmwgen}
-\title{values average of PISCO daily dataframe}
+\title{monthly average values of PISCO daily dataframe}
 \usage{
 pmwgen(x)
 }
@@ -11,6 +11,6 @@ pmwgen(x)
 and maximum temperature.}
 }
 \description{
-function for calculate values average of PISCO daily dataframe from precipitation,
+function for calculate monthly average values of PISCO daily dataframe from precipitation,
 minimum and maximum temperature.
 }
