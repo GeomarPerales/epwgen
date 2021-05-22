@@ -1,0 +1,59 @@
+---
+title: "epwgen - weather data for model WGEN from PISCO"
+author: "Geomar Perales A."
+date: "2021-05-22"
+output: html_document
+---
+
+# epwgen: multiple extraction from PISCO daily data and sun daily data generation for WGEN model.
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Extract daily values from PISCO (precipitation, minimum and maximum temperature)
+
+```{r}
+library(openxlsx)
+library(epwgen)
+
+#PISCO files of precipitation, minimum and maximum temperature
+ppd <- "D:/PISCOd_pp_v2.1.nc"
+tmnd <- "D:/PISCOd_tmn_v1.1.nc"
+tmxd <- "D:/PISCOd_tmx_v1.1.nc"
+
+#coordinates from study zone
+lon <- -75.575
+lat <- -14.201
+
+nc.files <- c(ppd, tmnd, tmxd)
+x <- data.frame(nc = nc.files, lon, lat)
+
+daily.data <- pdwgen(x)
+write.xlsx(daily.data, "D:/dailydata_PISCO.xlsx")
+```
+## Generate monthly average values from PISCO (precipitation and temperature)
+
+```{r}
+average.data <- pmwgen(daily.data)
+write.xlsx(average.data, "D:/averagedata_PISCO.xlsx")
+```
+
+
+## Generate daily values from short wave radiation
+
+```{r}
+data("blaney.criddle")
+
+#latitude from study zone
+data <- swrad(lat, blaney.criddle)
+write.xlsx(data, "D:/daily_swrad.xlsx")
+```
+
+## Generate monthly values from extraterrestrial radiation
+
+```{r}
+#latitude from study zone
+data <- extrad(lat, blaney.criddle)
+write.xlsx(data, "D:/monthly_extrad.xlsx")
+```
