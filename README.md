@@ -25,7 +25,6 @@ This is a basic example which shows you how to solve extract daily values of PIS
 monthly average values of precipitation, minimum and maximum temperature:
 
 ``` r
-#Extraction daily values from PISCO (precipitation and temperature)
 library(epwgen)
 ppd <- "D:/PISCOd_pp_v1.1.nc"
 tmnd <- "D:/PISCOd_tmn_v1.1.nc"
