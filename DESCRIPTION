@@ -14,5 +14,6 @@ Imports: sp, raster
 Suggests: knitr, rmarkdown
 RoxygenNote: 7.1.1
 Date/Publication: 2021-05-20
+Depends: R (>= 2.10)
 NeedsCompilation: no
-Packaged: 2021-05-21 03:35:41 UTC; gperales
+Packaged: 2021-05-22 04:34:53 UTC; gperales
