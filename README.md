@@ -38,6 +38,6 @@ average.data <- pmwgen(daily.data)
 ```
 ## Credits
 
-RPisco was developed by Geomar Perales. or any issue or suggestion please write
+epwgen package was developed by Geomar Perales. or any issue or suggestion please write
 to: perales.geomar@gmail.com.
 
