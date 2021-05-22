@@ -18,6 +18,6 @@ blaney.criddle
 }
 \description{
 a list of 3 dataframes: first list is light hours per day, second list is maximum hours
-and thir list is extraterrestial radiation.
+and third list is extraterrestial radiation.
 }
 \keyword{datasets}
