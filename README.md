@@ -26,6 +26,7 @@ monthly average values of precipitation, minimum and maximum temperature:
 
 ``` r
 library(epwgen)
+ppd <- "D:/PISCOd_pp_v1.1.nc"
 tmnd <- "D:/PISCOd_tmn_v1.1.nc"
 tmxd <- "D:/PISCOd_tmx_v1.1.nc"
 lon <- -75.575
