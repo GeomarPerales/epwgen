@@ -2,6 +2,7 @@
 
 export(pdwgen)
 export(pmwgen)
+export(swrad)
 import(raster)
 import(sp)
 importFrom(raster,brick)

@@ -25,6 +25,7 @@ This is a basic example which shows you how to solve extract daily values of PIS
 monthly average values of precipitation, minimum and maximum temperature:
 
 ``` r
+#Ectraction daily values from PISCO (precipitation and temperature)
 library(epwgen)
 ppd <- "D:/PISCOd_pp_v1.1.nc"
 tmnd <- "D:/PISCOd_tmn_v1.1.nc"
@@ -36,8 +37,14 @@ x <- data.frame(nc = nc.files, lon, lat)
 daily.data <- pdwgen(x)
 average.data <- pmwgen(daily.data)
 ```
+for generate daily values from short wave radiation by latitude:
+``` r
+data("blaney.criddle")
+data <- swrad( -14.201, blaney.criddle)
+```
+
 ## Credits
 
-epwgen package was developed by Geomar Perales. or any issue or suggestion please write
+epwgen was developed by Geomar Perales. or any issue or suggestion please write
 to: perales.geomar@gmail.com.
 
