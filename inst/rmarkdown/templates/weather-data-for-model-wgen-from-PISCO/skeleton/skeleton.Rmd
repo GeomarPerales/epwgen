@@ -1,5 +1,5 @@
 ---
-title: "epwgen - weather data for model WGEN from PISCO"
+title: "epwgen - weather data for model WGEN"
 author: "Geomar Perales A."
 date: "2021-05-22"
 output: html_document
@@ -30,30 +30,29 @@ nc.files <- c(ppd, tmnd, tmxd)
 x <- data.frame(nc = nc.files, lon, lat)
 
 daily.data <- pdwgen(x)
-write.xlsx(daily.data, "D:/dailydata_PISCO.xlsx")
-```
-## Generate monthly average values from PISCO (precipitation and temperature)
 
-```{r}
+# Generate monthly average values from PISCO (precipitation and temperature)
 average.data <- pmwgen(daily.data)
-write.xlsx(average.data, "D:/averagedata_PISCO.xlsx")
-```
 
-
-## Generate daily values from short wave radiation
-
-```{r}
+# Generate daily values from short wave radiation
 data("blaney.criddle")
+swrad.data <- swrad(lat, blaney.criddle)
 
-#latitude from study zone
-data <- swrad(lat, blaney.criddle)
-write.xlsx(data, "D:/daily_swrad.xlsx")
+# Generate monthly values from extraterrestrial radiation
+extrad.data <- extrad(lat, blaney.criddle)
 ```
 
-## Generate monthly values from extraterrestrial radiation
-
+## export data to excel
 ```{r}
 #latitude from study zone
-data <- extrad(lat, blaney.criddle)
-write.xlsx(data, "D:/monthly_extrad.xlsx")
+out <- createWorkbook()
+addWorksheet(out, "daily_data")
+addWorksheet(out, "average_data")
+addWorksheet(out, "swrad")
+addWorksheet(out, "extrad")
+writeData(out, sheet = "daily_data", daily.data)
+writeData(out, sheet = "average_data", average.data)
+writeData(out, sheet = "swrad", swrad.data)
+writeData(out, sheet = "extrad", extrad.data)
+saveWorkbook(out, "D:/weather_wgen.xlsx")
 ```
