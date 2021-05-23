@@ -39,6 +39,9 @@ for generate daily values from short wave radiation by latitude:
 data("blaney.criddle")
 data <- swrad( -14.201, blaney.criddle)
 ```
+## Limitations
+
+epwgen package not process wind speed monthly average values.
 
 ## Credits
 
