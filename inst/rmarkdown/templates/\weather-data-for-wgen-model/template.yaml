@@ -1,0 +1,4 @@
+name: weather data for WGEN model
+description: >
+   multiple extraction from PISCO daily data and sun daily data generation for WGEN model
+create_dir: FALSE
