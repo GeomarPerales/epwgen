@@ -4,6 +4,8 @@ The goal of epwgen package is multiple extraction from PISCO (SENAMHI, Peru) dai
 
 ## Installation
 
+You can install the released version of ideamR from Github with:
+
 Step 1: Install devtools
 
 ``` r
