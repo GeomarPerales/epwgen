@@ -4,10 +4,12 @@
 #' @param x latitude of study zone
 #' @param blaney.criddle a list of 3 dataframes: first list is light hours per day,
 #' second list is maximum hours and third list is extraterrestial radiation.
+#' @param start start year of time serie of radiation, default value is 1981
+#' @param end end year of time serie of radiation, default value is 2016
 #' @export
 #' @name swrad
 
-swrad <- function(x, blaney.criddle){
+swrad <- function(x, blaney.criddle, start = NULL, end = NULL){
   r <- x%%5
   n <- floor(x - r)
   idx <- match(n, blaney.criddle$light.hours$latitud)
@@ -108,8 +110,22 @@ swrad <- function(x, blaney.criddle){
   swrad <- 2.45*(rad_ext*(0.25 + 0.5*relation))
 
   ###############################################################################
-  start <- 1981
-  end <- 2016
+  if(is.null(start)){
+    start <- 1981
+  }else if(is.numeric(start)){
+    start <- round(start)
+  }else if(!is.numeric(start)){
+    stop("start it's not number")
+  }
+
+  if(is.null(end)){
+    end <- 2016
+  }else if(is.numeric(end)){
+    end <- round(end)
+  }else if(!is.numeric(end)){
+    stop("end it's not number")
+  }
+
   date <- seq( as.Date(paste0(start,"-01-01")), as.Date(paste0(end,"-12-31")), "days")
   df.rad <- data.frame(date = date, value = NA)
 
