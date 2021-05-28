@@ -4,13 +4,17 @@
 \alias{swrad}
 \title{daily data from short wave radiation}
 \usage{
-swrad(x, blaney.criddle)
+swrad(x, blaney.criddle, start = NULL, end = NULL)
 }
 \arguments{
 \item{x}{latitude of study zone}
 
 \item{blaney.criddle}{a list of 3 dataframes: first list is light hours per day,
 second list is maximum hours and third list is extraterrestial radiation.}
+
+\item{start}{start year of time serie of radiation, default value is 1981}
+
+\item{end}{end year of time serie of radiation, default value is 2016}
 }
 \description{
 function for generate daily values from short wave radiation by latitude.
