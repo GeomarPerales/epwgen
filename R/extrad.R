@@ -4,10 +4,11 @@
 #' @param x latitude of study zone
 #' @param blaney.criddle a list of 3 dataframes: first list is light hours per day,
 #' second list is maximum hours and third list is extraterrestial radiation.
+#' @param unit value by default is "Mj", use "mm" for equivalent evaporation.
 #' @export
 #' @name extrad
 
-extrad <- function(x, blaney.criddle){
+extrad <- function(x, blaney.criddle, unit = NULL){
 
   r <- x%%5
   n <- floor(x - r)
@@ -36,9 +37,16 @@ extrad <- function(x, blaney.criddle){
       diff <- blaney.criddle$radiation[,i+1][idx-1] - blaney.criddle$radiation[,i+1][idx]
       v[i] <- blaney.criddle$radiation[,i+1][idx] + diff*(x-j)/(k-j)
     }
+
     rad_ext <- v
+    if(is.null(unit)){
+      return(rad_ext)
+    }else if(unit == "mm"){
+      return(rad_ext/0.408)
+    }
+
   }
-  return(rad_ext)
+
 }
 
 #' @rdname extrad
