@@ -4,13 +4,15 @@
 \alias{extrad}
 \title{monthly data from extraterrestrial radiation}
 \usage{
-extrad(x, blaney.criddle)
+extrad(x, blaney.criddle, unit = NULL)
 }
 \arguments{
 \item{x}{latitude of study zone}
 
 \item{blaney.criddle}{a list of 3 dataframes: first list is light hours per day,
 second list is maximum hours and third list is extraterrestial radiation.}
+
+\item{unit}{value by default is "Mj", use "mm" for equivalent evaporation.}
 }
 \description{
 function for generate monthly data from extraterrestrial radiation by latitude.
